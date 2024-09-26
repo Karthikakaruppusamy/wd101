@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        .container {
+            height: 400px; 
+            width: 350px;                 
+            background-color: #ffffff;    
+            border: 2px solid #ccc;      
+            border-radius: 10px;          
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);      
+            margin-left: 450px;  
+            margin-top: 10px;       
+            padding: 10px;
+        }
+
+        .reg-form {
+            font-size: 30px;
+            margin-left: 60px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            margin-top: -5px;
+            color: #76067e;
+        }
+
+        .form-container {
+            font-size: 15px;
+            font-weight: bold;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            padding-top: 7px;
+        }
+
+        .form-row {
+            display: flex; 
+            align-items: center; 
+            margin-bottom: 10px; 
+            margin-left: 20px;
+        }
+
+        .form-row label {
+            margin-right: 10px; 
+            width: 100px; 
+            margin-top: 10px;
+        }
+
+        .form-row input[type="text"], .form-row input[type="date"], .form-row input[type="password"], .form-row input[type="email"] {
+            width: 200px; 
+            height: 40px;              
+            padding: 8px;                 
+            border: 1px solid #ccc;      
+            border-radius: 4px;           
+            box-sizing: border-box;    
+            background-color: rgb(242, 242, 242);
+            margin-top: 10px;
+        }
+
+        input#name:invalid:focus, input#email:invalid:focus, input#password:invalid:focus, input#dob:invalid:focus {
+            border: #46064b;
+        }
+
+        .submit button {
+            background-color: #761dc4; 
+            color: white;              
+            padding: 10px 20px;        
+            font-size: 16px;          
+            border: none;              
+            border-radius: 5px;       
+            cursor: pointer;   
+            margin-top: 4px;    
+            margin-left: 22px;
+        }
+
+        .submit button:hover {
+            background-color: #48074d;
+        }
+
+        .entries-container {
+            margin-top: 30px; 
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            width: 700px;
+            margin-left: -170px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);      
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse; 
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        th, td {
+            border: 1px solid #ddd; 
+            padding: 12px 15px; 
+            text-align: left; 
+        }
+
+        th {
+            background-color: #f4f4f4; 
+            font-weight: bold; 
+            font-size: 16px;
+        }
+
+        td {
+            background-color: #fafafa; 
+            font-size: 14px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9; 
+        }
+
+        tr:hover {
+            background-color: #f1f1f1; 
+        }
+    </style>
+</head>
+
+<body>
+    
+<div class="container" id="container"> 
+    <h2 class="reg-form">Registration Form</h2>
+
+    <form id="registrationForm" onsubmit="displayValues(event);">
+        <div class="form-container">
+
+            <div class="form-row">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter full name" required>
+            </div>
+
+            <div class="form-row">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter email" required>
+            </div>
+
+            <div class="form-row">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter password" required>
+            </div>
+
+            <div class="form-row">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" min="1967-01-01" max="2004-12-31" required>
+            </div>
+            <div class="form-row" style="margin-top: 30px; display: flex; align-items: center; width: 100%; justify-content: flex-start;">
+                <input type="checkbox" id="checkbox" name="checkbox" >
+                <label for="checkbox" style="margin-left: 10px; font-size: 14px; white-space: nowrap; margin-top: 1px;">Accept the terms and conditions</label>   
+            </div>
+
+            <div class="submit" id="submit">
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="entries-container" id="entries-container">
+        <h3 style="margin-left: 320px; font-weight: bold; font-size: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #76067e;">Entries</h3>
+        <table id="entrytable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Dob</th>
+                    <th>Accepted Terms?</th>
+                </tr>
+            </thead>
+            <tbody id="entryvalues">
+            </tbody>
+        </table>
+    </div>
+
+    <script src="index.js" defer></script>
+
+</body>
+</html>
